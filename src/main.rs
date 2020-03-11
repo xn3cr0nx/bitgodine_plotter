@@ -6,7 +6,6 @@ use crate::config::Config;
 use actix_web::{middleware, web, App, HttpServer};
 use dotenv::dotenv;
 use listenfd::ListenFd;
-// use std::env;
 use slog::info;
 
 mod config;
@@ -21,7 +20,7 @@ pub struct AppState {
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     dotenv().ok();
-    // env_logger::init();
+    env_logger::init();
 
     let config = Config::from_env().unwrap();
 
