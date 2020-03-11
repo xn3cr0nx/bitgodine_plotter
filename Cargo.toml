@@ -1,0 +1,24 @@
+[package]
+name = "plotter"
+version = "0.1.0"
+authors = ["Patrick Jusic <patrick.jusic@protonmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "2.0"
+actix-rt = "1.0"
+dotenv = "0.11"
+env_logger = "0.6"
+listenfd = "0.3"
+config = "0.10.1"
+log = "0.4"
+serde = "1.0"
+serde_json = "1.0"
+uuid = { version = "0.6", features = ["serde", "v4"] }
+slog = "2.5.2"
+slog-term = "2.5.0"
+slog-async = "2.4.0"
+slog-envlogger = "2.2.0"
+
