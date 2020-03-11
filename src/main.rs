@@ -3,7 +3,7 @@ extern crate log;
 
 use crate::config::Config;
 
-use actix_web::{middleware, web, App, HttpServer};
+use actix_web::{middleware, App, HttpServer};
 use dotenv::dotenv;
 use listenfd::ListenFd;
 use slog::info;
@@ -38,8 +38,8 @@ async fn main() -> std::io::Result<()> {
               log: log.clone(),
             })
             .wrap(middleware::Logger::default())
-            .route("failtest", web::get().to(plotter::failtest))
-            .configure(plotter::init_routes)
+            .wrap(middleware::Logger::new("%a %{User-Agent}i"))
+            .configure(plotter::routes)
     );
 
     server = match listenfd.take_tcp_listener(0)? {
