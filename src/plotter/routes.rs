@@ -34,9 +34,8 @@ fn line_and_scatter_plot(
     info!(context.log, "generating plot for {}", h);
     let x = coordinates.x.clone();
     let y = coordinates.y.clone();
-    
     let trace = Scatter::new(x, y)
-      .mode(Mode::LinesMarkers)
+      .mode(Mode::Lines)
       .name(h)
       .show_legend(true)
       .line(Line::new().shape(LineShape::Hv));
@@ -68,6 +67,7 @@ async fn index() -> Result<HttpResponse, ApiError> {
 pub fn routes(cfg: &mut web::ServiceConfig) {
   cfg.service(
     web::scope("/plot")
+      .app_data(web::JsonConfig::default().limit(18446744073709551615))
       .route("", web::post().to(generate_plot))
       .route("", web::get().to(index)),
   );
