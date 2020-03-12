@@ -9,6 +9,7 @@ edition = "2018"
 [dependencies]
 actix-web = "2.0"
 actix-rt = "1.0"
+actix-files = "0.2.1"
 dotenv = "0.11"
 env_logger = "0.6"
 listenfd = "0.3"
@@ -21,4 +22,4 @@ slog = "2.5.2"
 slog-term = "2.5.0"
 slog-async = "2.4.0"
 slog-envlogger = "2.2.0"
-
+plotly = "0.4.0"
